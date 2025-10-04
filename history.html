@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="История расчетов калорий">
+  <meta name="theme-color" content="#4caf50">
   <title>История | CaloTrack</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="history.js"></script>
@@ -12,34 +14,76 @@
     <nav class="sidebar">
       <h2>CaloTrack</h2>
       <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="calculator.html">Калькулятор</a></li>
-        <li><a href="proteins.html">Белки</a></li>
-        <li><a href="fats.html">Жиры</a></li>
-        <li><a href="carbs.html">Углеводы</a></li>
-        <li><a href="history.html" class="active">История</a></li>
+        <li><a href="index.html">🏠 Главная</a></li>
+        <li><a href="calculator.html">🧮 Калькулятор</a></li>
+        <li><a href="proteins.html">🥩 Белки</a></li>
+        <li><a href="fats.html">🥑 Жиры</a></li>
+        <li><a href="carbs.html">🍚 Углеводы</a></li>
+        <li><a href="history.html" class="active">📊 История</a></li>
       </ul>
     </nav>
 
     <main class="content">
       <h1>История расчётов</h1>
+      <p>Здесь хранятся ваши последние расчеты калорий и БЖУ. Отслеживайте свой прогресс и корректируйте цели.</p>
 
-       <button id="clear-history" class="clear-btn">Очистить историю</button>
+      <div class="feature-card purple" style="margin-bottom: 25px;">
+        <h3 style="margin-top: 0;">📈 Анализ прогресса</h3>
+        <p>Сравнивайте предыдущие расчеты, чтобы увидеть динамику изменений и скорректировать план питания.</p>
+      </div>
+
+      <button id="clear-history" class="clear-btn">🗑️ Очистить историю</button>
        
-      <div id="history-list" class="history-list"></div>
+      <div id="history-list" class="history-list">
+        <div style="text-align: center; padding: 40px 20px; color: var(--text-color); opacity: 0.7;">
+          <div class="skeleton skeleton-text" style="width: 60%; margin: 10px auto;"></div>
+          <div class="skeleton skeleton-text" style="width: 40%; margin: 10px auto;"></div>
+          <p>Загрузка истории...</p>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top: 30px;">
+        <h3 style="margin-top: 0;">💡 Советы по использованию истории</h3>
+        <ul>
+          <li>Сравнивайте изменения в калораже при смене целей</li>
+          <li>Отслеживайте динамику соотношения БЖУ</li>
+          <li>Используйте историю для корректировки плана питания</li>
+          <li>Обращайте внимание на изменения ИМТ</li>
+        </ul>
+      </div>
+
+      <div class="progress-container" style="margin: 30px 0;">
+        <h3>Статистика использования</h3>
+        <div class="progress-labels">
+          <span>Расчетов за месяц</span>
+          <span>65%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 65%"></div>
+        </div>
+        
+        <div class="progress-labels">
+          <span>Достигнуто целей</span>
+          <span>80%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 80%"></div>
+        </div>
+      </div>
     </main>
   </div>
-<footer class="site-footer">
-  <div class="footer-content">
-    <p>📧 <a href="mailto:Disketion-partner@yandex.ru">Disketion-partner@yandex.ru</a></p>
-    <p>
-      🔗 <a href="https://t.me/Reshapiz" target="_blank">Telegram</a> |
-      <a href="https://github.com/Disketion" target="_blank">GitHub</a>
-    </p>
-    <p>© 2025 CaloTrack. Все права защищены.</p>
-  </div>
-</footer>
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>📧 <a href="mailto:Disketion-partner@yandex.ru">Disketion-partner@yandex.ru</a></p>
+      <p>
+        🔗 <a href="https://t.me/Reshapiz" target="_blank" rel="noopener">Telegram</a> |
+        <a href="https://github.com/Disketion" target="_blank" rel="noopener">GitHub</a>
+      </p>
+      <p>© 2025 CaloTrack. Все права защищены.</p>
+    </div>
+  </footer>
 
-
+  <script src="theme-manager.js"></script>
 </body>
-</html>   
+</html>
