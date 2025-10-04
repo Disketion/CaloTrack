@@ -3,27 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Калькулятор | CaloTrack</title>
+  <meta name="description" content="Калькулятор калорий и БЖУ">
+  <meta name="theme-color" content="#4caf50">
+  <title>Калькулятор калорий | CaloTrack</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="layout">
     <nav class="sidebar">
       <h2>CaloTrack</h2>
       <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="calculator.html" class="active">Калькулятор</a></li>
-        <li><a href="proteins.html">Белки</a></li>
-        <li><a href="fats.html">Жиры</a></li>
-        <li><a href="carbs.html">Углеводы</a></li>
-        <li><a href="history.html">История</a></li>
+        <li><a href="index.html">🏠 Главная</a></li>
+        <li><a href="calculator.html" class="active">🧮 Калькулятор</a></li>
+        <li><a href="proteins.html">🥩 Белки</a></li>
+        <li><a href="fats.html">🥑 Жиры</a></li>
+        <li><a href="carbs.html">🍚 Углеводы</a></li>
+        <li><a href="history.html">📊 История</a></li>
       </ul>
     </nav>
 
     <main class="content">
       <h1>Калькулятор калорий</h1>
+      <p>Рассчитайте вашу суточную норму калорий и оптимальное соотношение БЖУ для достижения ваших целей.</p>
+
+      <div class="feature-card blue" style="margin-bottom: 25px;">
+        <h3 style="margin-top: 0;">🎯 Персонализированный расчет</h3>
+        <p>Калькулятор учитывает ваш пол, возраст, рост, вес, уровень активности и цель для точного расчета.</p>
+      </div>
+
       <form id="calorie-form">
         <div class="calc-group">
           <label>Пол</label>
@@ -44,17 +52,17 @@
 
         <div class="calc-group">
           <label for="age">Возраст (лет)</label>
-          <input type="number" id="age" name="age" min="10" max="120" required />
+          <input type="number" id="age" name="age" min="10" max="120" required placeholder="Введите ваш возраст" />
         </div>
 
         <div class="calc-group">
           <label for="height">Рост (см)</label>
-          <input type="number" id="height" name="height" min="50" max="250" required />
+          <input type="number" id="height" name="height" min="50" max="250" required placeholder="Введите ваш рост" />
         </div>
 
         <div class="calc-group">
           <label for="weight">Вес (кг)</label>
-          <input type="number" id="weight" name="weight" min="20" max="300" required />
+          <input type="number" id="weight" name="weight" min="20" max="300" required placeholder="Введите ваш вес" />
         </div>
 
         <div class="calc-group">
@@ -81,28 +89,40 @@
         <button type="submit">Рассчитать</button>
       </form>
 
-      <div class="result" id="result"></div>
+      <div class="result" id="result">
+        <div style="text-align: center; padding: 20px; color: var(--text-color); opacity: 0.7;">
+          <p>Здесь появится результат расчета...</p>
+          <p>Заполните форму и нажмите "Рассчитать"</p>
+        </div>
+      </div>
+      
       <div id="chart-container">
-        <canvas id="bjuChart" width="280" height="280"></canvas>
-        <div id="weight-chart-container" style="margin-top: 30px;">
-  <h2>Прогноз изменения веса</h2>
-  <canvas id="weightChart" width="400" height="250"></canvas>
-</div>
+        <canvas id="bjuChart" width="300" height="300"></canvas>
+        <div id="weight-chart-container">
+          <h2>Прогноз изменения веса</h2>
+          <canvas id="weightChart" width="400" height="250"></canvas>
+        </div>
+      </div>
 
+      <div class="info-box" style="margin-top: 30px;">
+        <h3 style="margin-top: 0;">💡 Как использовать результаты?</h3>
+        <p>Используйте рассчитанные значения как ориентир для планирования вашего питания. Помните, что это приблизительные значения, и индивидуальные потребности могут отличаться.</p>
       </div>
     </main>
   </div>
-<footer class="site-footer">
-  <div class="footer-content">
-    <p>📧 <a href="mailto:Disketion-partner@yandex.ru">Disketion-partner@yandex.ru</a></p>
-    <p>
-      🔗 <a href="https://t.me/Reshapiz" target="_blank">Telegram</a> |
-      <a href="https://github.com/Disketion" target="_blank">GitHub</a>
-    </p>
-    <p>© 2025 CaloTrack. Все права защищены.</p>
-  </div>
-</footer>
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>📧 <a href="mailto:Disketion-partner@yandex.ru">Disketion-partner@yandex.ru</a></p>
+      <p>
+        🔗 <a href="https://t.me/Reshapiz" target="_blank" rel="noopener">Telegram</a> |
+        <a href="https://github.com/Disketion" target="_blank" rel="noopener">GitHub</a>
+      </p>
+      <p>© 2025 CaloTrack. Все права защищены.</p>
+    </div>
+  </footer>
 
-
+  <script src="theme-manager.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

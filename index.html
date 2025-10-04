@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CaloTrack</title>
+  <meta name="description" content="CaloTrack - расчет калорий и БЖУ для ваших целей">
+  <meta name="theme-color" content="#4caf50">
+  <title>CaloTrack - Главная</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,30 +13,77 @@
     <nav class="sidebar">
       <h2>CaloTrack</h2>
       <ul>
-        <li><a href="index.html" class="active">Главная</a></li>
-        <li><a href="calculator.html">Калькулятор</a></li>
-        <li><a href="proteins.html">Белки</a></li>
-        <li><a href="fats.html">Жиры</a></li>
-        <li><a href="carbs.html">Углеводы</a></li>
+        <li><a href="index.html" class="active">🏠 Главная</a></li>
+        <li><a href="calculator.html">🧮 Калькулятор</a></li>
+        <li><a href="proteins.html">🥩 Белки</a></li>
+        <li><a href="fats.html">🥑 Жиры</a></li>
+        <li><a href="carbs.html">🍚 Углеводы</a></li>
+        <li><a href="history.html">📊 История</a></li>
       </ul>
     </nav>
+    
     <main class="content">
       <h1>Добро пожаловать в CaloTrack</h1>
-      <p>Здесь ты сможешь рассчитать свой суточный калораж, узнать оптимальное соотношение белков, жиров и углеводов, и построить питание под свои цели.</p>
-      <p>Выбери нужный раздел в меню слева, чтобы начать.</p>
+      <p>Интеллектуальный помощник для расчета калорий и отслеживания питания с красивым дизайном и анимациями.</p>
+      
+      <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 35px 0;">
+        <div class="feature-card hover-lift">
+          <h3 style="margin-top: 0;">🧮 Умный калькулятор</h3>
+          <p>Рассчитайте вашу норму калорий и БЖУ с учетом целей и активности</p>
+        </div>
+        <div class="feature-card blue hover-lift">
+          <h3 style="margin-top: 0;">🎨 Темная тема</h3>
+          <p>Переключайтесь между темами для комфортной работы в любое время суток</p>
+        </div>
+        <div class="feature-card purple hover-lift">
+          <h3 style="margin-top: 0;">📈 Анимированные графики</h3>
+          <p>Наглядная визуализация вашего прогресса и целей</p>
+        </div>
+      </div>
+
+      <div class="progress-container" style="margin: 30px 0;">
+        <h3>Пример прогресс-баров</h3>
+        <div class="progress-labels">
+          <span>Белки</span>
+          <span>75%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 75%"></div>
+        </div>
+        
+        <div class="progress-labels">
+          <span>Жиры</span>
+          <span>60%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 60%"></div>
+        </div>
+        
+        <div class="progress-labels">
+          <span>Углеводы</span>
+          <span>45%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 45%"></div>
+        </div>
+      </div>
+
+      <p>Выберите нужный раздел в меню, чтобы начать работу с приложением.</p>
     </main>
   </div>
-<footer class="site-footer">
-  <div class="footer-content">
-    <p>📧 <a href="mailto:Disketion-partner@yandex.ru">Disketion-partner@yandex.ru</a></p>
-    <p>
-      🔗 <a href="https://t.me/Reshapiz" target="_blank">Telegram</a> |
-      <a href="https://github.com/Disketion" target="_blank">GitHub</a>
-    </p>
-    <p>© 2025 CaloTrack. Все права защищены.</p>
-  </div>
-</footer>
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>📧 <a href="mailto:Disketion-partner@yandex.ru">Disketion-partner@yandex.ru</a></p>
+      <p>
+        🔗 <a href="https://t.me/Reshapiz" target="_blank" rel="noopener">Telegram</a> |
+        <a href="https://github.com/Disketion" target="_blank" rel="noopener">GitHub</a>
+      </p>
+      <p>© 2025 CaloTrack. Все права защищены.</p>
+    </div>
+  </footer>
 
-
+  <script src="theme-manager.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Белки - строительный материал для мышц">
+  <meta name="theme-color" content="#4caf50">
   <title>Белки | CaloTrack</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,59 +13,75 @@
     <nav class="sidebar">
       <h2>CaloTrack</h2>
       <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="calculator.html">Калькулятор</a></li>
-        <li><a href="proteins.html" class="active">Белки</a></li>
-        <li><a href="fats.html">Жиры</a></li>
-        <li><a href="carbs.html">Углеводы</a></li>
+        <li><a href="index.html">🏠 Главная</a></li>
+        <li><a href="calculator.html">🧮 Калькулятор</a></li>
+        <li><a href="proteins.html" class="active">🥩 Белки</a></li>
+        <li><a href="fats.html">🥑 Жиры</a></li>
+        <li><a href="carbs.html">🍚 Углеводы</a></li>
+        <li><a href="history.html">📊 История</a></li>
       </ul>
     </nav>
+    
     <main class="content">
       <h1>Белки</h1>
       <p>Белки — это строительный материал для мышц, органов и тканей. Они необходимы для восстановления и роста.</p>
-      <ul>
-        <li>Рекомендуемая норма: 1.6–2.2 г на 1 кг массы тела</li>
-        <li>Лучшие источники:</li>
-        <section class="product-grid">
-  <button class="product-button">
-    <img src="img/chicken.png" alt="Курица" />
-    <span>Курица</span>
-  </button>
+      
+      <div class="recommendation-box">
+        <h3 style="margin-top: 0;">💡 Рекомендации</h3>
+        <ul style="margin-bottom: 0;">
+          <li><strong>Рекомендуемая норма:</strong> 1.6–2.2 г на 1 кг массы тела</li>
+          <li><strong>Для похудения:</strong> 2.0–2.4 г/кг</li>
+          <li><strong>Для набора массы:</strong> 1.8–2.2 г/кг</li>
+        </ul>
+      </div>
 
-  <button class="product-button">
-    <img src="img/eggs.png" alt="Яйца" />
-    <span>Яйца</span>
-  </button>
+      <h2>Лучшие источники белка</h2>
+      <section class="product-grid">
+        <button class="product-button">
+          <img src="img/chicken.png" alt="Курица" />
+          <span>Курица</span>
+        </button>
 
-  <button class="product-button">
-    <img src="img/fish.png" alt="Рыба" />
-    <span>Рыба</span>
-  </button>
+        <button class="product-button">
+          <img src="img/eggs.png" alt="Яйца" />
+          <span>Яйца</span>
+        </button>
 
-  <button class="product-button">
-    <img src="img/beef.png" alt="Говядина" />
-    <span>Говядина</span>
-  </button>
+        <button class="product-button">
+          <img src="img/fish.png" alt="Рыба" />
+          <span>Рыба</span>
+        </button>
 
-  <button class="product-button">
-    <img src="img/cottage_cheese.png" alt="Творог" />
-    <span>Творог</span>
-  </button>
-</section>
+        <button class="product-button">
+          <img src="img/beef.png" alt="Говядина" />
+          <span>Говядина</span>
+        </button>
 
-      </ul>
+        <button class="product-button">
+          <img src="img/cottage_cheese.png" alt="Творог" />
+          <span>Творог</span>
+        </button>
+      </section>
+
+      <div class="info-box">
+        <h3 style="margin-top: 0;">📚 Интересные факты о белках</h3>
+        <p>Белки состоят из аминокислот, 9 из которых являются незаменимыми - организм не может их синтезировать самостоятельно и должен получать с пищей.</p>
+      </div>
     </main>
   </div>
-<footer class="site-footer">
-  <div class="footer-content">
-    <p>📧 <a href="mailto:Disketion-partner@yandex.ru">Disketion-partner@yandex.ru</a></p>
-    <p>
-      🔗 <a href="https://t.me/Reshapiz" target="_blank">Telegram</a> |
-      <a href="https://github.com/Disketion" target="_blank">GitHub</a>
-    </p>
-    <p>© 2025 CaloTrack. Все права защищены.</p>
-  </div>
-</footer>
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>📧 <a href="mailto:Disketion-partner@yandex.ru">Disketion-partner@yandex.ru</a></p>
+      <p>
+        🔗 <a href="https://t.me/Reshapiz" target="_blank" rel="noopener">Telegram</a> |
+        <a href="https://github.com/Disketion" target="_blank" rel="noopener">GitHub</a>
+      </p>
+      <p>© 2025 CaloTrack. Все права защищены.</p>
+    </div>
+  </footer>
 
+  <script src="theme-manager.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
