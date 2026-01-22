@@ -1252,4 +1252,227 @@ select:focus,
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .loading-screen {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2e7d32 100%);
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.loading-text h2 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textPulse 2s ease-in-out infinite;
+}
+
+.loading-text p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  max-width: 300px;
+  line-height: 1.5;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+/* From Uiverse.io by alexruix - модифицированный */
+.loader {
+  --cell-size: 52px;
+  --cell-spacing: 1px;
+  --cells: 3;
+  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+  display: flex;
+  flex-wrap: wrap;
+  width: var(--total-size);
+  height: var(--total-size);
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cell {
+  flex: 0 0 var(--cell-size);
+  margin: var(--cell-spacing);
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 8px;
+  animation: 1.5s ripple ease infinite;
+  transition: transform 0.3s ease;
+}
+
+.cell:hover {
+  transform: scale(1.1);
+}
+
+.cell.d-0 { animation-delay: 0ms; }
+.cell.d-1 { animation-delay: 100ms; }
+.cell.d-2 { animation-delay: 200ms; }
+.cell.d-3 { animation-delay: 300ms; }
+.cell.d-4 { animation-delay: 400ms; }
+
+.cell:nth-child(1) { --cell-color: #00FF87; }
+.cell:nth-child(2) { --cell-color: #0CFD95; }
+.cell:nth-child(3) { --cell-color: #17FBA2; }
+.cell:nth-child(4) { --cell-color: #23F9B2; }
+.cell:nth-child(5) { --cell-color: #30F7C3; }
+.cell:nth-child(6) { --cell-color: #3DF5D4; }
+.cell:nth-child(7) { --cell-color: #45F4DE; }
+.cell:nth-child(8) { --cell-color: #53F1F0; }
+.cell:nth-child(9) { --cell-color: #60EFFF; }
+
+/*Animation*/
+@keyframes ripple {
+  0% {
+    background-color: transparent;
+    transform: scale(0.95);
+  }
+  30% {
+    background-color: var(--cell-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--cell-color);
+  }
+  60% {
+    background-color: transparent;
+    transform: scale(0.95);
+  }
+  100% {
+    background-color: transparent;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes textPulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { 
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  50% { 
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+}
+
+/* Progress bar for loading */
+.loading-progress {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00FF87, #60EFFF);
+  width: 0%;
+  border-radius: 2px;
+  animation: loadingProgress 3s ease-in-out forwards;
+  position: relative;
+}
+
+.loading-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes loadingProgress {
+  0% { width: 0%; }
+  20% { width: 30%; }
+  50% { width: 60%; }
+  80% { width: 90%; }
+  100% { width: 100%; }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Mobile adjustments for loading screen */
+@media (max-width: 768px) {
+  .loader {
+    --cell-size: 42px;
+  }
+  
+  .loading-text h2 {
+    font-size: 2rem;
+  }
+  
+  .loading-text p {
+    font-size: 1rem;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader {
+    --cell-size: 36px;
+    padding: 10px;
+  }
+  
+  .loading-content {
+    gap: 20px;
+  }
+  
+  .loading-text h2 {
+    font-size: 1.8rem;
+  }
 }
