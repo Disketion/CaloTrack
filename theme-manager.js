@@ -101,8 +101,12 @@ class ThemeManager {
 }
 
 // Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-    new ThemeManager();
+init() {
+    this.applyTheme(this.currentTheme);
+    this.createThemeToggle();
+    this.addSystemThemeListener();
+    this.showLoadingScreen(); // Добавить эту строку
+}
 
 // Добавить в класс ThemeManager, в метод init() после this.addSystemThemeListener();
 showLoadingScreen() {
@@ -157,3 +161,4 @@ showWelcomeNotification() {
 }
 
 });
+
