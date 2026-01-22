@@ -9,6 +9,7 @@ class ThemeManager {
         this.applyTheme(this.currentTheme);
         this.createThemeToggle();
         this.addSystemThemeListener();
+        this.showLoadingScreen(); // Добавить эту строку
     }
 
     applyTheme(theme) {
@@ -68,6 +69,57 @@ class ThemeManager {
         }
     }
 
+    showLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        const progressBar = document.querySelector('.loading-progress-bar');
+        
+        if (!loadingScreen) return;
+        
+        // Устанавливаем случайную длительность загрузки от 3 до 7 секунд
+        const minDuration = 3000; // 3 секунды
+        const maxDuration = 7000; // 7 секунд
+        const duration = Math.random() * (maxDuration - minDuration) + minDuration;
+        
+        // Анимация прогресс-бара
+        if (progressBar) {
+            progressBar.style.animationDuration = `${duration}ms`;
+        }
+        
+        // Скрываем загрузочный экран через заданное время
+        setTimeout(() => {
+            loadingScreen.classList.add('fade-out');
+            
+            // Удаляем элемент после анимации
+            setTimeout(() => {
+                loadingScreen.remove();
+                
+                // Показываем уведомление о готовности
+                this.showWelcomeNotification();
+            }, 800);
+        }, duration);
+    }
+
+    showWelcomeNotification() {
+        const notification = document.createElement('div');
+        notification.className = 'theme-notification success';
+        notification.innerHTML = `
+            <strong>✨ CaloTrack готов к работе!</strong>
+            <p>Начните расчет вашей нормы калорий</p>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Позиционируем уведомление
+        notification.style.top = '20px';
+        notification.style.right = '20px';
+        
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(-10px)';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+
     showThemeNotification(theme) {
         // Удаляем старые уведомления
         const oldNotifications = document.querySelectorAll('.theme-notification');
@@ -101,64 +153,6 @@ class ThemeManager {
 }
 
 // Инициализация при загрузке страницы
-init() {
-    this.applyTheme(this.currentTheme);
-    this.createThemeToggle();
-    this.addSystemThemeListener();
-    this.showLoadingScreen(); // Добавить эту строку
-}
-
-// Добавить в класс ThemeManager, в метод init() после this.addSystemThemeListener();
-showLoadingScreen() {
-    const loadingScreen = document.getElementById('loading-screen');
-    const progressBar = document.querySelector('.loading-progress-bar');
-    
-    if (!loadingScreen) return;
-    
-    // Устанавливаем случайную длительность загрузки от 3 до 7 секунд
-    const minDuration = 3000; // 3 секунды
-    const maxDuration = 7000; // 7 секунд
-    const duration = Math.random() * (maxDuration - minDuration) + minDuration;
-    
-    // Анимация прогресс-бара
-    if (progressBar) {
-        progressBar.style.animationDuration = `${duration}ms`;
-    }
-    
-    // Скрываем загрузочный экран через заданное время
-    setTimeout(() => {
-        loadingScreen.classList.add('fade-out');
-        
-        // Удаляем элемент после анимации
-        setTimeout(() => {
-            loadingScreen.remove();
-            
-            // Показываем уведомление о готовности
-            this.showWelcomeNotification();
-        }, 800);
-    }, duration);
-}
-
-showWelcomeNotification() {
-    const notification = document.createElement('div');
-    notification.className = 'theme-notification success';
-    notification.innerHTML = `
-        <strong>✨ CaloTrack готов к работе!</strong>
-        <p>Начните расчет вашей нормы калорий</p>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Позиционируем уведомление
-    notification.style.top = '20px';
-    notification.style.right = '20px';
-    
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        notification.style.transform = 'translateY(-10px)';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-
+document.addEventListener('DOMContentLoaded', () => {
+    new ThemeManager();
 });
-
